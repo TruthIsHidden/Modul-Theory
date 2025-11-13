@@ -1,0 +1,18 @@
+Modul Theory
+___________
+-> A modul is the smallest independent unit with no inheritant value by itself.
+-> Relations define value, not moduls by themseleves.
+-> An Object, G, can be defined as the result of n moduls and their links.
+G = {m1 ~ m2 ~ m3... mn}, where ~ is the relation operator.
+if, G = {a ~ b ~ c.. ~n}, G = { a ~* n)(this is a composite link)
+-> P ~ Q means P relates to Q, and P(~)Q means relation OF P and Q.
+-> -G is the inverse of an object G, S.T, if G = {a ~ b ~ c.. ~n}, G = { a ~* n), -G = { n ~* a}.
+
+Statements(Axioms):
+P ~ Q ~= Q ~ P
+2. p() is the magnitude function,
+p(P(~)Q) = p(Q(~~)P), where ~~ inverse relation operatator.
+3. c = a + b, c~* = (a~*) U (b~*) || ~*c = (~*a) U (~*b), where U is the UNION, and ~*x, means all relations to x, and x~* means all relations of x.
+4. if, ~*a = ~*b || a~* = b~*, a = b
+5. if, (a~b~...n), then (a~*n),
+p(a(~*)b) = p(a(~)b(~)..n)

@@ -16,3 +16,4 @@ p(P(~)Q) = p(Q(~~)P), where ~~ inverse relation operatator.
 4. if, ~*a = ~*b || a~* = b~*, a = b
 5. if, (a~b~...n), then (a~*n),
 p(a(~*)b) = p(a(~)b(~)..n)
+6. p(A * B) = p(A) * p(B)

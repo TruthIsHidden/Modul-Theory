@@ -13,7 +13,7 @@ P ~ Q ~= Q ~ P
 2. p() is the magnitude function,
 p(P(~)Q) = p(Q(~~)P), where ~~ inverse relation operatator.
 3. c = a + b, c~* = (a~*) U (b~*) || ~*c = (~*a) U (~*b), where U is the UNION, and ~*x, means all relations to x, and x~* means all relations of x.
-4. if, ~*a = ~*b || a~* = b~*, a = b
+4. if, ~*a = ~*b AND a~* = b~*, a = b
 5. if, (a~b~...n), then (a~*n),
 p(a(~*)b) = p(a(~)b(~)..n)
 6. p(A * B) = p(A) * p(B)

@@ -30,7 +30,6 @@ Axioms / Statements:
 5. Composite links:
    If (a ~ b ~ ... ~ n), then (a ~* n)
    p(a( ~* )b) = p(a( ~ )b( ~ ) ... n)
-
 6. Multiplication of objects (new axiom):
    Let G = {m1 ~ m2 ~ ... ~ mn} and G' = {m'1 ~ m'2 ~ ... ~ m'k}
    Define the product object G * G' as:
@@ -50,3 +49,14 @@ Axioms / Statements:
       - Associative: (G * G') * G'' = G * (G' * G'')
       - Identity element: I = object with 1 module, such that G * I = G
       - Inverse compatibility: -(G * G') = (-G) * (-G')
+7. Definition of p(), a scalar function.
+   p(G) = Σ c(mᵢ) for all modules mᵢ in object G
+   Where c(m) is the relational capacity of module m, satisfying:
+   a) Default capacity: c(m) = 1 for standard modules
+   b) Composite capacity: For product modules (m₁, m₂, ..., mₖ), the capacity is:
+   c((m₁, m₂, ..., mₖ)) = c(m₁) × c(m₂) × ... × c(mₖ)
+   c) Capacity domain: c(m) ∈ ℝ⁺ (positive real numbers)
+   d) Identity element: The identity object I = {i} has c(i) = 1, thus p(I) = 1
+   e) Zero object: The empty object Z = ∅ has p(Z) = 0
+Interpretation: Relational capacity measures a module's structural ability to participate in relations. Modules with fractional capacity (c < 1) represent partial or weakened relational participation, while modules with c > 1 represent amplified capacity.
+     

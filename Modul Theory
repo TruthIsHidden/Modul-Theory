@@ -14,12 +14,12 @@ Axioms / Statements:
    P ~ Q ≠ Q ~ P
 
 2. Potential function p():
-   p(P(~)Q) = p(Q(~~)P), where ~~ is the inverse relation operator.
+   p(P( ~ )Q) = p(Q( ~~ )P), where ~~ is the inverse relation operator.
 
 3. Addition of objects:
    c = a + b
-   c~* = (~*a) ∪ (~*b)
-   ~*c = (~*a) ∪ (~*b)
+   c~* = ( ~*a ) ∪ ( ~*b )
+   ~*c = ( ~*a ) ∪ ( ~*b )
    (where ∪ is UNION, ~*x means all relations to x, and x~* means all relations of x);
 
    p(a+b) = p(a) + p(b)
@@ -29,7 +29,7 @@ Axioms / Statements:
 
 5. Composite links:
    If (a ~ b ~ ... ~ n), then (a ~* n)
-   p(a(~*)b) = p(a(~)b(~) ... n)
+   p(a( ~* )b) = p(a( ~ )b( ~ ) ... n)
 
 6. Multiplication of objects (new axiom):
    Let G = {m1 ~ m2 ~ ... ~ mn} and G' = {m'1 ~ m'2 ~ ... ~ m'k}

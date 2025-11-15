@@ -11,7 +11,7 @@ _____________
 Axioms / Statements:
 
 1. Commutativity of relations:
-   P ~ Q ≡ Q ~ P
+   P ~ Q ≠ Q ~ P
 
 2. Potential function p():
    p(P(~)Q) = p(Q(~~)P), where ~~ is the inverse relation operator.

@@ -20,7 +20,9 @@ Axioms / Statements:
    c = a + b
    c~* = (~*a) ∪ (~*b)
    ~*c = (~*a) ∪ (~*b)
-   (where ∪ is UNION, ~*x means all relations to x, and x~* means all relations of x)
+   (where ∪ is UNION, ~*x means all relations to x, and x~* means all relations of x);
+
+   p(a+b) = p(a) + p(b)
 
 4. Uniqueness of objects by relations:
    If ~*a = ~*b AND a~* = b~*, then a = b

@@ -14,7 +14,7 @@ Axioms / Statements:
    P ~ Q ≠ Q ~ P
 
 2. Potential function p():
-   p(P( ~ )Q) = p(Q( ~~ )P), where ~~ is the inverse relation operator.
+   p(P( ~ )Q) = p(P( ~~ )Q), where ~~ is the inverse relation operator.
 
 3. Addition of objects:
    c = a + b
@@ -59,4 +59,3 @@ Axioms / Statements:
    d) Identity element: The identity object I = {i} has c(i) = 1, thus p(I) = 1
    e) Zero object: The empty object Z = ∅ has p(Z) = 0
 Interpretation: Relational capacity measures a module's structural ability to participate in relations. Modules with fractional capacity (c < 1) represent partial or weakened relational participation, while modules with c > 1 represent amplified capacity.
-     

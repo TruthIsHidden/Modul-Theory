@@ -1,19 +1,50 @@
 Modul Theory
-___________
--> A modul is the smallest independent unit with no inheritant value by itself.
--> Relations define value, not moduls by themseleves.
+_____________
+-> A modul is the smallest independent unit with no inherent value by itself.
+-> Relations define value, not moduls by themselves.
 -> An Object, G, can be defined as the result of n moduls and their links.
-G = {m1 ~ m2 ~ m3... mn}, where ~ is the relation operator.
-if, G = {a ~ b ~ c.. ~n}, G = { a ~* n)(this is a composite link)
+   G = {m1 ~ m2 ~ m3 ... mn}, where ~ is the relation operator.
+   If G = {a ~ b ~ c ... ~ n}, G = {a ~* n} (composite link)
 -> P ~ Q means P relates to Q, and P(~)Q means relation OF P and Q.
--> -G is the inverse of an object G, S.T, if G = {a ~ b ~ c.. ~n}, G = { a ~* n), -G = { n ~* a}.
+-> -G is the inverse of an object G, such that if G = {a ~ b ~ c ... ~ n}, G = {a ~* n}, then -G = {n ~* a}.
 
-Statements(Axioms):
-P ~ Q ~= Q ~ P
-2. p() is the magnitude function,
-p(P(~)Q) = p(Q(~~)P), where ~~ inverse relation operatator.
-3. c = a + b, c~* = (a~*) U (b~*) || ~*c = (~*a) U (~*b), where U is the UNION, and ~*x, means all relations to x, and x~* means all relations of x.
-4. if, ~*a = ~*b AND a~* = b~*, a = b
-5. if, (a~b~...n), then (a~*n),
-p(a(~*)b) = p(a(~)b(~)..n)
+Axioms / Statements:
 
+1. Commutativity of relations:
+   P ~ Q ≡ Q ~ P
+
+2. Potential function p():
+   p(P(~)Q) = p(Q(~~)P), where ~~ is the inverse relation operator.
+
+3. Addition of objects:
+   c = a + b
+   c~* = (~*a) ∪ (~*b)
+   ~*c = (~*a) ∪ (~*b)
+   (where ∪ is UNION, ~*x means all relations to x, and x~* means all relations of x)
+
+4. Uniqueness of objects by relations:
+   If ~*a = ~*b AND a~* = b~*, then a = b
+
+5. Composite links:
+   If (a ~ b ~ ... ~ n), then (a ~* n)
+   p(a(~*)b) = p(a(~)b(~) ... n)
+
+6. Multiplication of objects (new axiom):
+   Let G = {m1 ~ m2 ~ ... ~ mn} and G' = {m'1 ~ m'2 ~ ... ~ m'k}
+   Define the product object G * G' as:
+
+   a) Modules of the product:
+      G * G' = { (mi, m'j) | i = 1..n, j = 1..k }
+      (Total modules = n * k)
+
+   b) Link formation:
+      (mi, m'j) ~ (mr, m's) ⇔ (mi ~ mr in G) OR (m'j ~ m's in G')
+      (Each new module links according to the relations of its parent modules)
+
+   c) Potential:
+      p(G * G') = p(G) * p(G')
+
+   d) Properties:
+      - Associative: (G * G') * G'' = G * (G' * G'')
+      - Identity element: I = object with 1 module, such that G * I = G
+      - Inverse compatibility: -(G * G') = (-G) * (-G')

@@ -49,13 +49,29 @@ Axioms / Statements:
       - Associative: (G * G') * G'' = G * (G' * G'')
       - Identity element: I = object with 1 module, such that G * I = G
       - Inverse compatibility: -(G * G') = (-G) * (-G')
-7. Definition of p(), a scalar function.
+7.Definition of p(), the potential function.
+   
    p(G) = Σ c(mᵢ) for all modules mᵢ in object G
-   Where c(m) is the relational capacity of module m, satisfying:
-   a) Default capacity: c(m) = 1 for standard modules
-   b) Composite capacity: For product modules (m₁, m₂, ..., mₖ), the capacity is:
-   c((m₁, m₂, ..., mₖ)) = c(m₁) × c(m₂) × ... × c(mₖ)
-   c) Capacity domain: c(m) ∈ ℝ⁺ (positive real numbers)
+   
+   Where c(m) is the relational effect of module m, satisfying:
+   
+   a) Default effect: c(m) = 1 for standard modules
+   
+   b) Composite effect: For product modules (m₁, m₂, ..., mₖ), the effect is:
+      c((m₁, m₂, ..., mₖ)) = c(m₁) × c(m₂) × ... × c(mₖ)
+   
+   c) Effect domain: c(m) ∈ ℝ (all real numbers)
+   
    d) Identity element: The identity object I = {i} has c(i) = 1, thus p(I) = 1
+   
    e) Zero object: The empty object Z = ∅ has p(Z) = 0
-Interpretation: Relational capacity measures a module's structural ability to participate in relations. Modules with fractional capacity (c < 1) represent partial or weakened relational participation, while modules with c > 1 represent amplified capacity.
+
+Interpretation: 
+The relational effect c(m) measures how a module contributes to the system:
+- Constructive modules: c(m) > 0 (amplifying, supportive, additive)
+- Neutral modules: c(m) = 0 (no net contribution)
+- Destructive modules: c(m) < 0 (inhibitory, antagonistic, subtractive)
+- Magnitude |c(m)| represents the strength of the module's influence.
+
+The potential p(G) represents the net relational effect of all modules in object G.
+(used claude to format certain axioms, like 7th well)

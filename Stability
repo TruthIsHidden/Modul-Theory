@@ -1,3 +1,6 @@
+Stability of Systems
+_____________________
+Definitions ->
 Existence of a system:
 A system can exist only if the energy required to maintain its relational structure is provided internally or externally.
 In the absence of external energy, a system tends toward a stable configuration.
@@ -7,4 +10,12 @@ A stable system is a configuration of a given system that can exist independentl
 
 Energy:
 For a system G, E(G) is defined as the minimum required potential at which G can exist as a stable system.
-[A system cannot exist if p(G) < E(G)]
+[A system cannot exist if p(G) < E(G) independently]
+________________________
+Axioms:
+1.Unless externally supplied with energy, a non stable system (G) tends to achieve,
+p(G) = E(G).
+Therefore if p(G) becomes less than E(G) -the system ceases to exist(Unless external energy is supplied to prevent its collapse, such a system is called a deficient system.)
+
+
+

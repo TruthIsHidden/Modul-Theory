@@ -7,6 +7,9 @@ _____________
    If G = {a ~ b ~ c ... ~ n}, G = {a ~* n} (composite link)
 -> P ~ Q means P relates to Q, and P(~)Q means relation OF P and Q.
 -> -G is the inverse of an object G, such that if G = {a ~ b ~ c ... ~ n}, G = {a ~* n}, then -G = {n ~* a}.
+-> Commutative relations are defined as, P <~> Q.
+   Not all relations are commutative relations but all commutative relations are relations, of the form.
+   P <~> Q <-> (P ~ Q) AND (Q ~ P)
 
 Axioms / Statements:
 

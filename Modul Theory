@@ -4,7 +4,7 @@ _____________
 -> Relations define value, not moduls by themselves.
 -> An Object, G, can be defined as the result of n moduls and their links.
    G = {m1 ~ m2 ~ m3 ... mn}, where ~ is the relation operator.
-   If G = {a ~ b ~ c ... ~ n}, G = {a ~* n} (composite link)
+   If G = {a ~ b ~ c ... ~ n}, G = {a ~* n} (composite link) [Note: Objects are often referred to as systems]
 -> P ~ Q means P relates to Q, and P(~)Q means relation OF P and Q.
 -> -G is the inverse of an object G, such that if G = {a ~ b ~ c ... ~ n}, G = {a ~* n}, then -G = {n ~* a}.
 -> Commutative relations are defined as, P <~> Q.

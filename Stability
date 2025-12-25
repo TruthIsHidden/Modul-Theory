@@ -20,6 +20,8 @@ Therefore if p(G) becomes less than E(G) -the system ceases to exist(Unless exte
 p(G)/E(G) {if Sr = 1, the system is stable}
 Measure of Instability (Or ΔS) = |Sr - 1| [This only applies to systems of the same type(either all compared systems are unstable OR deficient), p(G) > E(G) OR p(G)< E(G)]
 to compare the DEGREE of stability between two systems, their measure of instabilities are compared. The greater the measure the more "unstable" the system is.
+[Note: Irrespective of the measure of instability an excessive system is always more stable than a deficient system as one can exist independently whereas the other cannot,
+Stable > Surplus > Deficient]
 
 
 

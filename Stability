@@ -11,6 +11,10 @@ A stable system is a configuration of a given system that can exist independentl
 Energy:
 For a system G, E(G) is defined as the minimum required potential at which G can exist as a stable system.
 [A system cannot exist if p(G) < E(G) independently]
+
+Identity:
+Two systems share the same identity if their modules are connected by composite links that are equivalent under admissible relational rearrangements. 
+While the system retains its ability to exist independently.
 ________________________
 Axioms:
 1.Unless externally supplied with energy, a non stable system (G) tends to achieve,
@@ -22,6 +26,12 @@ Measure of Instability (Or ΔS) = |Sr - 1| [This only applies to systems of the 
 to compare the DEGREE of stability between two systems, their measure of instabilities are compared. The greater the measure the more "unstable" the system is.
 [Note: Irrespective of the measure of instability an excessive system is always more stable than a deficient system as one can exist independently whereas the other cannot,
 Stable > Surplus > Deficient]
+3.For a system G,
+pE(G) = p(G) - E(G). If pE(G) > 0, the system is a surplus system.
+A surplus system tends to achieve the stable configuration [p(G) = E(G)] through two methods:
+1. Relaxation: The system utilizes the excess energy via internal rearrangement provided identity is not lost.
+2. Dissipation: If relaxion is not possible, energy is given out to the environment.
+
 
 
 

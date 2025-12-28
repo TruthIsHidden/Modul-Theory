@@ -1,0 +1,24 @@
+Systems
+_____________________________
+A system as we know is an object (combination/link of modules).
+Mega systems are objects where each unit(module) is itself another system - they are the combination of many sub systems.
+To explicitly define a Mega System, for example a mega system G:
+MSys_G = {a ~ ?b ~ c...} [where a, b and c can either be individual modules or system themselves, to represent a system as a module we use the symbol '?', or '?' repeated how many times
+ever required to represent its dimension from a single default module before its name,
+Note: if G = { x ~ y ~ z}, by using ?G we simply mean the same but the symbol is used to distinguish between CLASS/dimension of the modul, for example ??X means X is a system of system of
+basic modules, or instead of repeating '?' the no of dimension times, we could use DmD(n)SystemName where n is the dimension, example: DmD(2)X]
+_____________________________
+Axioms:
+1.Upscaling of a modul:
+Simply upscaling a system (lets say X) by any dimensional depth does NOT affect its potential, or p(X) as its not affecting the structure of the system.
+2.Linking:
+The modules of a system are viewed/implicitly upscaled to be of the same dimensional depth as they interact at the same depth[depth of the highest depth having sub module-system]
+to form a system of (n+1) dimension.
+3.Stability Requirement:
+While increasing the dimension of the Mega system/system doesn't affect the potential by itself, the minimium energy required to maintain stability increases monotonically.
+For mega system X,
+E(DmD(n+1)X) > E(DmD(n)X)
+
+
+
+

@@ -55,7 +55,7 @@ Axioms / Statements:
       - Each unit in each object can interact with multiple/any object in the other object, representing how when two systems merge, new links are formed freely.
 7.Definition of p(), the potential function.
    
-   p(G) = Σ c(mᵢ) for all modules mᵢ in object G
+   p(G) = Σ c₀(mi)*(Σ w(mi ~ mj)) [wher c₀(mi) represents each basic modules value, and w(mi ~ mj) the weight/value of the relations]
    
    Where c(m) is the relational effect of module m, satisfying:
    

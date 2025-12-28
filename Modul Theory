@@ -53,29 +53,43 @@ Axioms / Statements:
       - Identity element: I = object with 1 module, such that G * I = G
       - Inverse compatibility: -(G * G') = (-G) * (-G')
       - Each unit in each object can interact with multiple/any object in the other object, representing how when two systems merge, new links are formed freely.
-7.Definition of p(), the potential function.
-   
-   p(G) = Σ c₀(mi)*(Σ w(mi ~ mj)) [wher c₀(mi) represents each basic modules value, and w(mi ~ mj) the weight/value of the relations]
-   
-   Where c(m) is the relational effect of module m, satisfying:
-   
-   a) Default effect: c(m) = 1 for standard modules
-   
-   b) Composite effect: For product modules (m₁, m₂, ..., mₖ), the effect is:
-      c((m₁, m₂, ..., mₖ)) = c(m₁) × c(m₂) × ... × c(mₖ)
-   
-   c) Effect domain: c(m) ∈ ℝ (all real numbers)
-   
-   d) Identity element: The identity object I = {i} has c(i) = 1, thus p(I) = 1
-   
-   e) Zero object: The empty object Z = ∅ has p(Z) = 0
+7. Definition of p(), the potential function.
 
-Interpretation: 
-The relational effect c(m) measures how a module contributes to the system:
-- Constructive modules: c(m) > 0 (amplifying, supportive, additive)
-- Neutral modules: c(m) = 0 (no net contribution)
-- Destructive modules: c(m) < 0 (inhibitory, antagonistic, subtractive)
-- Magnitude |c(m)| represents the strength of the module's influence.
+   p(G) = Σ [c₀(mi) × (Σ w(mi, mj)) / deg(mi)]
+   
+   Summed over all modules mi in G, where:
 
-The potential p(G) represents the net relational effect of all modules in object G.
+   Components:
+   - c₀(mi) = Intrinsic capacity of module mi
+     • Domain: c₀(mi) ∈ ℝ
+     • Default: c₀(mi) = 1 for standard modules
+   
+   - w(mi, mj) = Weight of relation between mi and mj
+     • For directed: w(mi ~ mj) + w(mj ~ mi) (count both directions)
+     • For bidirectional: w(mi <~> mj) (count once)
+     • Domain: w ∈ ℝ
+     • Default: w = 1 for standard relations
+   
+   - deg(mi) = Degree of module mi (number of distinct modules mi connects to)
+     • Bidirectional relations count as 1 connection
+     • For isolated modules: deg(mi) = 0 → zero contribution
+   
+   Properties:
+   a) Default: c₀(m) = 1, w = 1 for standard modules/relations
+   
+   b) Composite effect: c₀((m₁, m₂, ..., mₖ)) = c₀(m₁) × c₀(m₂) × ... × c₀(mₖ)
+   
+   c) Domain: c₀(m), w(mi, mj) ∈ ℝ
+   
+   d) Identity: I = {i} with self-loop → p(I) = 1
+   
+   e) Zero: Z = ∅ → p(Z) = 0
+   
+   f) Isolated modules contribute zero potential
+   
+   Interpretation:
+   - c₀(m) > 0: constructive; c₀(m) = 0: neutral; c₀(m) < 0: destructive
+   - w > 0: synergistic; w = 0: neutral; w < 0: antagonistic
+   - Degree normalization prevents inflation in dense networks
+   - p(G) = net relational capacity of system.
 (used claude to format certain axioms, like 7th well)

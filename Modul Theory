@@ -52,6 +52,7 @@ Axioms / Statements:
       - Associative: (G * G') * G'' = G * (G' * G'')
       - Identity element: I = object with 1 module, such that G * I = G
       - Inverse compatibility: -(G * G') = (-G) * (-G')
+      - Each unit in each object can interact with multiple/any object in the other object, representing how when two systems merge, new links are formed freely.
 7.Definition of p(), the potential function.
    
    p(G) = Σ c(mᵢ) for all modules mᵢ in object G

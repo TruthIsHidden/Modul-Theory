@@ -33,7 +33,15 @@ Axioms / Statements:
 5. Composite links:
    If (a ~ b ~ ... ~ n), then (a ~* n)
    p(a( ~* )b) = p(a( ~ )b( ~ ) ... n)
-6. Multiplication of objects (new axiom):
+
+6. Induced subsystems:
+   For any subset H ⊆ M, the subsystem on H is:
+      G|_H = (H, R ∩ (H × H))
+   Relations with at least one endpoint outside H are not part of H.
+   Composite links are derived and vanish when any modul in the chain is removed.
+   This guarantees locality, composability, and solvability.
+
+7. Multiplication of objects (new axiom):
    Let G = {m1 ~ m2 ~ ... ~ mn} and G' = {m'1 ~ m'2 ~ ... ~ m'k}
    Define the product object G * G' as:
 
@@ -53,7 +61,8 @@ Axioms / Statements:
       - Identity element: I = object with 1 module, such that G * I = G
       - Inverse compatibility: -(G * G') = (-G) * (-G')
       - Each unit in each object can interact with multiple/any object in the other object, representing how when two systems merge, new links are formed freely.
-7. Definition of p(), the potential function.
+
+8. Definition of p(), the potential function.
 
    p(G) = Σ [c₀(mi) × (Σ w(mi, mj)) / deg(mi)]
    

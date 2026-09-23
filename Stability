@@ -9,38 +9,44 @@ Stable system:
 A stable system is a configuration G for which p(G) ≥ E(G). It requires no external energy to maintain its relational identity.
 
 Energy:
-For a system G, E(G) is the minimum relational capacity required for G to maintain stability.
+For a system G, E(G) is the signed relational energy of G. It can be positive (deficient, needs energy), zero (marginally stable), or negative (bound, stable).
 
 Define per modul m:
    A(m) = Σ_{n~m} |w(m,n)|          (Activity)
    L(m) = |Σ_{n~m} w(m,n)·r̂(m,n)|  (Net Load, vector sum magnitude)
    B(m) = A(m) - L(m)               (Balance)
 
-Define angles intrinsically:
-   For two neighbors n_i, n_j of m, remove m from the graph.
-   Let d(n_i, n_j) be the shortest path distance in the remaining graph.
-   θ_ij(m) = π · d(n_i, n_j) / (d(n_i, n_j) + 2)
+Define angles via Laplacian embedding:
+   For modul m with neighbors N(m) = {n_1, ..., n_k}:
+   Consider the induced subgraph on N(m).
+   Compute its graph Laplacian L = D - A.
+   Take the first k-1 non-trivial eigenvectors as coordinates.
+   Each neighbor n_i gets a vector r_i in R^{k-1}.
+   θ_ij(m) = arccos( r_i · r_j / (|r_i| |r_j|) )
 
-Define ideal angle:
-   θ₀(m) = 2π / k_m,  where k_m = deg(m)
-   [Derived from maximizing balance: equally spaced relations give zero net load.]
+Define ideal Gram matrix:
+   For k equally spaced unit vectors in R^{k-1}, the ideal pairwise inner products are:
+   G_ideal_ij = 1 if i = j, and -1/(k-1) if i ≠ j.
 
 Define strain:
-   Strain(m) = Σ_{i<j} ( (θ_ij(m) - θ₀(m)) / π )²
+   Strain(m) = Σ_{i<j} ( cos(θ_ij(m)) - (-1/(k-1)) )²
+   = Σ_{i<j} ( cos(θ_ij(m)) + 1/(k-1) )²
+   [This compares the actual Gram matrix of angles to the ideal one. No ordering needed.]
 
 Define globally:
    D(G) = Σ_m max(0, |c₀(m)| - A(m))   (Demand)
-   S(G) = β Σ_m B(m) + γ·C(G)          (Structure Bonus)
+   S(G) = β_s Σ_m B(m) + γ·C(G)        (Structure Bonus)
    where C(G) = |R| - |M| + k          (Cyclomatic number)
 
 Then:
-   E(G) = max(0, D(G) - S(G) + λ Σ_m Strain(m))
+   E(G) = D(G) + λ Σ_m Strain(m) - S(G)
 
 Properties:
-• E(G) ≥ 0 always.
-• E(G) = 0 means the system is already stable.
-• E(G) > 0 means the system needs this much relational capacity to become stable.
-• Binding Energy: BE(G) = S(G) - D(G) - λ Σ_m Strain(m). If BE > 0, the system is bound; BE is how much energy is needed to break it.
+• E(G) can be positive, zero, or negative.
+• E(G) > 0: deficient. The system needs this much relational capacity to become stable.
+• E(G) = 0: marginally stable.
+• E(G) < 0: bound. The system is stable. |E| is the binding energy.
+• Binding Energy: BE(G) = -E(G) when E < 0. If BE > 0, the system is bound; BE is how much energy is needed to break it.
 
 [A system cannot exist if p(G) < E(G) independently]
 
@@ -59,7 +65,7 @@ Axioms:
 
 2. Offset Stability (or Sr) for a system G is defined as,
 p(G)/E(G) {if Sr = 1, the system is stable}
-[Note: Sr is only defined when E(G) > 0. If E(G) = 0, the system is stable regardless of p(G); Sr is not applicable.]
+[Note: Sr is only defined when E(G) ≠ 0. If E(G) = 0, the system is marginally stable; Sr is not applicable.]
 Measure of Instability (Or ΔS) = |Sr - 1| [This only applies to systems of the same type (either all compared systems are unstable OR deficient), p(G) > E(G) OR p(G) < E(G)]
 to compare the DEGREE of stability between two systems, their measure of instabilities are compared. The greater the measure the more "unstable" the system is.
 [Note: Irrespective of the measure of instability an excessive system is always more stable than a deficient system as one can exist independently whereas the other cannot,

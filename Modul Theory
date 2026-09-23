@@ -50,8 +50,8 @@ Axioms / Statements:
       (Total modules = n * k)
 
    b) Link formation:
-      (mi, m'j) ~ (mr, m's) ⇔ (mi ~ mr in G) OR (m'j ~ m's in G')
-      (Each new module links according to the relations of its parent modules)
+      (mi, m'j) ~ (mr, m's) ⇔ (mi ~ mr in G) AND (m'j ~ m's in G')
+      Weight rule: w'((mi,m'j), (mr,m's)) = w(mi,mr) · w(m'j,m's)
 
    c) Potential:
       p(G * G') = p(G) * p(G')

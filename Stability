@@ -13,8 +13,20 @@ For a system G, E(G) is the minimum relational capacity required for G to mainta
 
 Define per modul m:
    A(m) = Σ_{n~m} |w(m,n)|          (Activity)
-   L(m) = |Σ_{n~m} σ(m,n)·w(m,n)|   (Net Load)
+   L(m) = |Σ_{n~m} w(m,n)·r̂(m,n)|  (Net Load, vector sum magnitude)
    B(m) = A(m) - L(m)               (Balance)
+
+Define angles intrinsically:
+   For two neighbors n_i, n_j of m, remove m from the graph.
+   Let d(n_i, n_j) be the shortest path distance in the remaining graph.
+   θ_ij(m) = π · d(n_i, n_j) / (d(n_i, n_j) + 2)
+
+Define ideal angle:
+   θ₀(m) = 2π / k_m,  where k_m = deg(m)
+   [Derived from maximizing balance: equally spaced relations give zero net load.]
+
+Define strain:
+   Strain(m) = Σ_{i<j} ( (θ_ij(m) - θ₀(m)) / π )²
 
 Define globally:
    D(G) = Σ_m max(0, |c₀(m)| - A(m))   (Demand)
@@ -22,13 +34,13 @@ Define globally:
    where C(G) = |R| - |M| + k          (Cyclomatic number)
 
 Then:
-   E(G) = max(0, D(G) - S(G))
+   E(G) = max(0, D(G) - S(G) + λ Σ_m Strain(m))
 
 Properties:
 • E(G) ≥ 0 always.
 • E(G) = 0 means the system is already stable.
 • E(G) > 0 means the system needs this much relational capacity to become stable.
-• Binding Energy: BE(G) = S(G) - D(G). If BE > 0, the system is bound; BE is how much energy is needed to break it.
+• Binding Energy: BE(G) = S(G) - D(G) - λ Σ_m Strain(m). If BE > 0, the system is bound; BE is how much energy is needed to break it.
 
 [A system cannot exist if p(G) < E(G) independently]
 

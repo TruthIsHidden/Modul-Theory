@@ -19,6 +19,4 @@ While increasing the dimension of the Mega system/system doesn't affect the pote
 For mega system X,
 E(DmD(n+1)X) > E(DmD(n)X)
 
-
-
-
+Note: The energy E(G) for mega systems is defined in Stability of Systems. The formula E(G) = D(G) + λ Σ Strain(m) - S(G) applies at every dimensional depth. E grows with dimension because D scales with the number of moduls.

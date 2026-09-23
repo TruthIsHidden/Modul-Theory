@@ -58,47 +58,37 @@ Axioms / Statements:
 
    d) Properties:
       - Associative: (G * G') * G'' = G * (G' * G'')
-      - Identity element: I = object with 1 module, such that G * I = G
+      - Identity element: I = object with 1 module with self-loop, such that G * I = G
       - Inverse compatibility: -(G * G') = (-G) * (-G')
-      - Each unit in each object can interact with multiple/any object in the other object, representing how when two systems merge, new links are formed freely.
 
 8. Definition of p(), the potential function.
 
-   p(G) = Σ [c₀(mi) × (Σ w(mi, mj)) / deg(mi)]
-   
-   Summed over all modules mi in G, where:
+   p(G) = Σ w(mi, mj)   (summed over all relations in G)
 
    Components:
-   - c₀(mi) = Intrinsic capacity of module mi
-     • Domain: c₀(mi) ∈ ℝ
-     • Default: c₀(mi) = 1 for standard modules
-   
    - w(mi, mj) = Weight of relation between mi and mj
      • For directed: w(mi ~ mj) + w(mj ~ mi) (count both directions)
      • For bidirectional: w(mi <~> mj) (count once)
      • Domain: w ∈ ℝ
      • Default: w = 1 for standard relations
-   
-   - deg(mi) = Degree of module mi (number of distinct modules mi connects to)
-     • Bidirectional relations count as 1 connection
-     • For isolated modules: deg(mi) = 0 → zero contribution
-   
+
    Properties:
-   a) Default: c₀(m) = 1, w = 1 for standard modules/relations
-   
-   b) Composite effect: c₀((m₁, m₂, ..., mₖ)) = c₀(m₁) × c₀(m₂) × ... × c₀(mₖ)
-   
-   c) Domain: c₀(m), w(mi, mj) ∈ ℝ
-   
-   d) Identity: I = {i} with self-loop → p(I) = 1
-   
-   e) Zero: Z = ∅ → p(Z) = 0
-   
-   f) Isolated modules contribute zero potential
-   
+   a) Default: w = 1 for standard relations
+
+   b) Domain: w(mi, mj) ∈ ℝ
+
+   c) Identity: I = {i} with self-loop → p(I) = 1
+
+   d) Zero: Z = ∅ → p(Z) = 0
+
+   e) Isolated modules contribute zero potential
+
+   f) p is a true semiring homomorphism:
+      p(a+b) = p(a) + p(b)
+      p(G*G') = p(G) · p(G')
+
    Interpretation:
-   - c₀(m) > 0: constructive; c₀(m) = 0: neutral; c₀(m) < 0: destructive
    - w > 0: synergistic; w = 0: neutral; w < 0: antagonistic
-   - Degree normalization prevents inflation in dense networks
-   - p(G) = net relational capacity of system.
+   - p(G) = total relational weight of system.
+   - c₀ (intrinsic capacity) is not used in p; it is used in E (see Stability doc).
 (used claude to format certain axioms, like 7th well)

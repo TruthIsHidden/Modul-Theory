@@ -6,10 +6,30 @@ A system can exist only if the energy required to maintain its relational struct
 In the absence of external energy, a system tends toward a stable configuration.
 
 Stable system:
-A stable system is a configuration of a given system that can exist independently, requiring the minimum necessary potential to maintain its relational identity.
+A stable system is a configuration G for which p(G) ≥ E(G). It requires no external energy to maintain its relational identity.
 
 Energy:
-For a system G, E(G) is defined as the minimum required potential at which G can exist as a stable system.
+For a system G, E(G) is the minimum relational capacity required for G to maintain stability.
+
+Define per modul m:
+   A(m) = Σ_{n~m} |w(m,n)|          (Activity)
+   L(m) = |Σ_{n~m} σ(m,n)·w(m,n)|   (Net Load)
+   B(m) = A(m) - L(m)               (Balance)
+
+Define globally:
+   D(G) = Σ_m max(0, |c₀(m)| - A(m))   (Demand)
+   S(G) = β Σ_m B(m) + γ·C(G)          (Structure Bonus)
+   where C(G) = |R| - |M| + k          (Cyclomatic number)
+
+Then:
+   E(G) = max(0, D(G) - S(G))
+
+Properties:
+• E(G) ≥ 0 always.
+• E(G) = 0 means the system is already stable.
+• E(G) > 0 means the system needs this much relational capacity to become stable.
+• Binding Energy: BE(G) = S(G) - D(G). If BE > 0, the system is bound; BE is how much energy is needed to break it.
+
 [A system cannot exist if p(G) < E(G) independently]
 
 Identity:
@@ -17,22 +37,27 @@ Two systems share the same identity if their modules are connected by composite 
 While the system retains its ability to exist independently.
 ________________________
 Axioms:
-1.Unless externally supplied with energy, a non stable system (G) tends to achieve,
-p(G) = E(G).
-Therefore if p(G) becomes less than E(G) -the system ceases to exist(Unless external energy is supplied to prevent its collapse, such a system is called a deficient system.)
-2.Offset Stability(or Sr) for a system G is defined as,
+1. Unless externally supplied with energy, a system tends to achieve p(G) = E(G).
+   - If p(G) < E(G): deficient. Forms relations to increase p.
+   - If p(G) > E(G): surplus. Uses capacity or rearranges relations to decrease p.
+   - If p(G) = E(G): stable. Optimal.
+   The system cannot go below E(G) without becoming deficient.
+   A surplus system may be trapped in a metastable state if no transition to lower p exists without external energy.
+   Therefore if p(G) becomes less than E(G) - the system ceases to exist (Unless external energy is supplied to prevent its collapse, such a system is called a deficient system.)
+
+2. Offset Stability (or Sr) for a system G is defined as,
 p(G)/E(G) {if Sr = 1, the system is stable}
-Measure of Instability (Or ΔS) = |Sr - 1| [This only applies to systems of the same type(either all compared systems are unstable OR deficient), p(G) > E(G) OR p(G)< E(G)]
+[Note: Sr is only defined when E(G) > 0. If E(G) = 0, the system is stable regardless of p(G); Sr is not applicable.]
+Measure of Instability (Or ΔS) = |Sr - 1| [This only applies to systems of the same type (either all compared systems are unstable OR deficient), p(G) > E(G) OR p(G) < E(G)]
 to compare the DEGREE of stability between two systems, their measure of instabilities are compared. The greater the measure the more "unstable" the system is.
 [Note: Irrespective of the measure of instability an excessive system is always more stable than a deficient system as one can exist independently whereas the other cannot,
 Stable > Surplus > Deficient]
-3.For a system G,
+
+3. For a system G,
 pE(G) = p(G) - E(G). If pE(G) > 0, the system is a surplus system.
-A surplus system tends to achieve the stable configuration [p(G) = E(G)] through two methods:
-1. Relaxation: The system utilizes the excess energy via internal rearrangement provided identity is not lost.
-2. Dissipation: If relaxion is not possible, energy is given out to the environment.
+A surplus system is stable but not optimal. It tends to lower p(G) toward E(G) through:
+1. Relaxation: The system utilizes the excess energy via internal rearrangement (capacity usage, bond breaking, or link rearrangement), provided identity is not lost and p' ≥ E'.
+2. Dissipation: If relaxation is not possible, energy is given out to the environment.
+If no relaxation path exists without external energy, the system is metastable.
 
-
-
-
-
+Note: When a modul's capacity is used (satisfied), its effective c₀ may decrease. This lowers p(G) and E(G). The system evolves until p(G) = E(G) or a barrier prevents further change.

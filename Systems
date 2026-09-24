@@ -14,9 +14,13 @@ Simply upscaling a system (lets say X) by any dimensional depth does NOT affect 
 2.Linking:
 The modules of a system are viewed/implicitly upscaled to be of the same dimensional depth as they interact at the same depth[depth of the highest depth having sub module-system]
 to form a system of (n+1) dimension.
+[Note: a relation between two systems used as moduls must state which submoduls it joins (its interface). Without that, the relation is only defined at the depth of the systems themselves.]
 3.Stability Requirement:
 While increasing the dimension of the Mega system/system doesn't affect the potential by itself, the minimium energy required to maintain stability increases monotonically.
 For mega system X,
 E(DmD(n+1)X) > E(DmD(n)X)
 
-Note: The energy E(G) for mega systems is defined in Stability of Systems. The formula E(G) = D(G) + λ Σ Strain(m) - S(G) applies at every dimensional depth. E grows with dimension because D scales with the number of moduls.
+Note: Upscaling does not change structure, so D, Strain and S (which depend only on structure) do not change with dimension. The increase comes from an explicit hierarchy cost:
+   E(DmD(n)X) = E₀(X) + μ · n · |M(X)|,   μ > 0
+where E₀(X) = D(X) + λ Σ Strain(m) - S(X) is the energy formula from Stability of Systems, n is the dimensional depth, and |M(X)| is the number of basic moduls of X.
+Hence E(DmD(n+1)X) - E(DmD(n)X) = μ · |M(X)| > 0, and E(DmD(0)X) = E₀(X).

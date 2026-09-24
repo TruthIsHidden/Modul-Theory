@@ -14,18 +14,21 @@ _____________
 Axioms / Statements:
 
 1. Commutativity of relations:
-   P ~ Q ≠ Q ~ P
+   P ~ Q and Q ~ P are not necessarily equal: P ~ Q ≠ Q ~ P in general.
+   (A relation and its reverse both hold only when P <~> Q.)
 
 2. Potential function p():
    p(P( ~ )Q) = p(P( ~~ )Q), where ~~ is the inverse relation operator.
 
 3. Addition of objects:
    c = a + b
-   c~* = ( ~*a ) ∪ ( ~*b )
+   c~* = ( a~* ) ∪ ( b~* )
    ~*c = ( ~*a ) ∪ ( ~*b )
    (where ∪ is UNION, ~*x means all relations to x, and x~* means all relations of x);
 
    p(a+b) = p(a) + p(b)
+   [Note: this holds when a and b are disjoint (they share no moduls). If they overlap,
+   p(a+b) = p(a) + p(b) - p(a ∩ b), where a ∩ b is the part they share.]
 
 4. Uniqueness of objects by relations:
    If ~*a = ~*b AND a~* = b~*, then a = b
@@ -52,6 +55,8 @@ Axioms / Statements:
    b) Link formation:
       (mi, m'j) ~ (mr, m's) ⇔ (mi ~ mr in G) AND (m'j ~ m's in G')
       Weight rule: w'((mi,m'j), (mr,m's)) = w(mi,mr) · w(m'j,m's)
+      [Note: links form only where both parents are linked, so the product of two objects can be
+      disconnected. Joining two objects is done by addition (axiom 3) plus explicit links, not by the product.]
 
    c) Potential:
       p(G * G') = p(G) * p(G')
@@ -63,14 +68,20 @@ Axioms / Statements:
 
 8. Definition of p(), the potential function.
 
-   p(G) = Σ w(mi, mj)   (summed over all relations in G)
+   p(G) = Σ w(a)   (summed over all arcs a in G)
 
    Components:
+   - An arc is one directed relation. A directed relation mi ~ mj is one arc,
+     a bidirectional relation mi <~> mj is two arcs (mi ~ mj and mj ~ mi),
+     and a self-loop is one arc.
    - w(mi, mj) = Weight of relation between mi and mj
      • For directed: w(mi ~ mj) + w(mj ~ mi) (count both directions)
-     • For bidirectional: w(mi <~> mj) (count once)
+     • For bidirectional: w(mi <~> mj) (count once in each direction, twice in total)
      • Domain: w ∈ ℝ
      • Default: w = 1 for standard relations
+   [Note: counting arcs is what makes p multiplicative. The product of two bidirectional
+   relations is two bidirectional relations (four arcs), and 2 * 2 = 4. Counting a bidirectional
+   relation once would give 2 ≠ 1 * 1.]
 
    Properties:
    a) Default: w = 1 for standard relations
@@ -84,7 +95,7 @@ Axioms / Statements:
    e) Isolated modules contribute zero potential
 
    f) p is a true semiring homomorphism:
-      p(a+b) = p(a) + p(b)
+      p(a+b) = p(a) + p(b)   (a and b disjoint)
       p(G*G') = p(G) · p(G')
 
    Interpretation:

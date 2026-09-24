@@ -96,13 +96,18 @@ Axioms 1-3 concern systems with E(G) > 0. A system with E(G) ≤ 0 is stable out
    A surplus system may be trapped in a metastable state if every favorable rearrangement is blocked by its barrier (Ω > p(G) - E(G)) and no external energy is supplied.
    Therefore if p(G) becomes less than E(G) - the system ceases to exist (Unless external energy is supplied to prevent its collapse, such a system is called a deficient system.)
 
-2. Offset Stability (or Sr) for a system G is defined as,
+2. Offset Ratio (or Sr) for a system G is defined as,
 p(G)/E(G) {if Sr = 1, the system is optimal}
 [Note: Sr is only defined when E(G) > 0. If E(G) ≤ 0, the system is stable regardless of p(G); Sr is not applicable, and such systems are compared by binding energy BE instead.]
-Measure of Instability (Or ΔS) = |Sr - 1| [This only applies to systems of the same type (either all compared systems are surplus OR deficient), p(G) > E(G) OR p(G) < E(G)]
-to compare the DEGREE of stability between two systems, their measure of instabilities are compared. The greater the measure the more "unstable" the system is.
-[Note: Irrespective of the measure of instability an excessive system is always more stable than a deficient system as one can exist independently whereas the other cannot,
-Optimal > Surplus > Deficient]
+Offset from Optimal (Or ΔS) = |Sr - 1|
+ΔS measures how far the system is from its optimal state p(G) = E(G). ΔS = 0 means optimal, and the larger ΔS is, the further p(G) has drifted from E(G) (above it: surplus, below it: deficient). It does NOT measure how stable the system is or how strongly it is bound.
+[Note: ΔS only compares systems of the same type (either all compared systems are surplus OR deficient), p(G) > E(G) OR p(G) < E(G). It should not be used to rank stability, because p grows with the size of a system while E does not scale the same way.]
+
+Degree of stability: to compare how stable two systems are, compare their energy per modul,
+   e(G) = E(G) / |M(G)|
+The lower e(G), the more stable (more strongly bound) the system. E is extensive (it grows with size), so per modul makes systems of different size comparable. For systems with E < 0, binding energy per modul, BE(G) / |M(G)|, can be used the same way.
+[Note: Irrespective of ΔS or e(G), a surplus system is always more stable than a deficient system as one can exist independently whereas the other cannot.
+Bound > Optimal > Surplus > Deficient.]
 
 3. For a system G,
 pE(G) = p(G) - E(G). If pE(G) > 0, the system is a surplus system.

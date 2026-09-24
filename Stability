@@ -6,76 +6,109 @@ A system can exist only if the energy required to maintain its relational struct
 In the absence of external energy, a system tends toward a stable configuration.
 
 Stable system:
-A stable system is a configuration G for which p(G) ≥ E(G). It requires no external energy to maintain its relational identity.
+A stable system is a configuration G with E(G) ≤ 0, or with E(G) > 0 and p(G) ≥ E(G). It requires no external energy to maintain its relational identity.
+[Among systems with E(G) > 0, p(G) = E(G) is optimal and p(G) > E(G) is surplus (see Axioms).]
 
 Energy:
-For a system G, E(G) is the signed relational energy of G. It can be positive (deficient, needs energy), zero (marginally stable), or negative (bound, stable).
+For a system G, E(G) is the signed relational energy of G. It can be positive (costly, needs capacity), zero (marginally stable), or negative (bound, stable).
 
 Define per modul m:
+   For a neighbor n of m, w(m,n) is the weight of the relation between them
+   (for a bidirectional relation, its weight; for directed relations, w(m ~ n) + w(n ~ m)).
+
    A(m) = Σ_{n~m} |w(m,n)|          (Activity)
    L(m) = |Σ_{n~m} w(m,n)·r̂(m,n)|  (Net Load, vector sum magnitude)
    B(m) = A(m) - L(m)               (Balance)
 
-Define angles via Laplacian embedding:
-   For modul m with neighbors N(m) = {n_1, ..., n_k}:
-   Consider the induced subgraph on N(m).
-   Compute its graph Laplacian L = D - A.
-   Take the first k-1 non-trivial eigenvectors as coordinates.
-   Each neighbor n_i gets a vector r_i in R^{k-1}.
-   θ_ij(m) = arccos( r_i · r_j / (|r_i| |r_j|) )
+   The vector sum needs only the pairwise angles between the relations of m, so no embedding is required:
+   L(m)² = Σ_i Σ_j w(m,n_i)·w(m,n_j)·cos θ_ij(m)   (with cos θ_ii = 1)
+   L(m) = sqrt( max(0, L(m)²) )
+
+Define angles intrinsically:
+   For modul m with neighbors N(m) = {n_1, ..., n_k}, k = deg(m):
+   For two neighbors n_i, n_j of m, remove m from the graph.
+   Let d(n_i, n_j) be the shortest path distance in the remaining graph.
+   θ_ij(m) = π · d(n_i, n_j) / (d(n_i, n_j) + 2)
+   If n_i and n_j are not connected once m is removed, nothing constrains them relative to each other:
+   θ_ij(m) is taken to be the ideal angle (zero strain contribution).
 
 Define ideal Gram matrix:
-   For k equally spaced unit vectors in R^{k-1}, the ideal pairwise inner products are:
-   G_ideal_ij = 1 if i = j, and -1/(k-1) if i ≠ j.
+   For k ≥ 2 equally spaced unit vectors in R^(k-1) (a regular simplex), the ideal pairwise inner products are:
+   Γ_ideal_ij = 1 if i = j, and -1/(k-1) if i ≠ j.
+   [These vectors sum to zero, so the net load is zero. k = 2 gives 180°, k = 3 gives 120°, k = 4 gives about 109.47°.]
 
 Define strain:
    Strain(m) = Σ_{i<j} ( cos(θ_ij(m)) - (-1/(k-1)) )²
    = Σ_{i<j} ( cos(θ_ij(m)) + 1/(k-1) )²
-   [This compares the actual Gram matrix of angles to the ideal one. No ordering needed.]
+   Strain(m) = 0 if k < 2.
+   [This compares the actual pairwise angles to the ideal Gram matrix. No ordering needed.]
 
 Define globally:
    D(G) = Σ_m max(0, |c₀(m)| - A(m))   (Demand)
    S(G) = β_s Σ_m B(m) + γ·C(G)        (Structure Bonus)
-   where C(G) = |R| - |M| + k          (Cyclomatic number)
+   where C(G) = |R| - |M| + q          (Cyclomatic number)
+   (|R| = number of linked pairs of moduls, each pair counted once whatever its direction or number of arcs;
+   |M| = number of moduls; q = number of connected components)
 
 Then:
    E(G) = D(G) + λ Σ_m Strain(m) - S(G)
 
 Properties:
 • E(G) can be positive, zero, or negative.
-• E(G) > 0: deficient. The system needs this much relational capacity to become stable.
+• E(G) > 0: costly. The system needs this much relational capacity to be stable. It is deficient if p(G) < E(G), and stable (surplus or optimal) if p(G) ≥ E(G).
 • E(G) = 0: marginally stable.
 • E(G) < 0: bound. The system is stable. |E| is the binding energy.
 • Binding Energy: BE(G) = -E(G) when E < 0. If BE > 0, the system is bound; BE is how much energy is needed to break it.
 
-[A system cannot exist if p(G) < E(G) independently]
+[A system with E(G) > 0 cannot exist if p(G) < E(G) independently]
 
 Identity:
 Two systems share the same identity if their modules are connected by composite links that are equivalent under admissible relational rearrangements. 
 While the system retains its ability to exist independently.
+[Admissible relational rearrangements: the elementary rearrangements (add/remove a relation, change a weight or a capacity) after which the system is still stable.]
+
+Rearrangements and barriers:
+A rearrangement G → G' is an elementary change: add or remove a relation, or change a weight or a capacity. Its activation barrier is
+   Ω(G → G') = κ · Σ_{relations broken} |w|,   κ ≥ 0
+Only broken relations cost anything. Forming relations, or raising a weight, has no barrier (Ω = 0).
+For a path of several rearrangements, the barrier of the path is the largest Ω among its steps.
+[Ω is used for the barrier so that B stays Balance.]
+
+A rearrangement is favorable if it moves the system toward its resting state:
+   - if E(G) > 0: it reduces |p - E| (raises p if the system is deficient, lowers p if it is surplus), and a surplus system stays stable (p' ≥ E'),
+   - if E(G) ≤ 0: it lowers E (raises BE) and the system stays stable,
+   and in both cases identity is not lost.
+
+A system can carry out a favorable rearrangement without external energy only if its barrier is covered by its own surplus:
+   Ω(G → G') ≤ p(G) - E(G)
+Barrier-free rearrangements (Ω = 0) are always available. Otherwise the rearrangement is blocked unless external energy is supplied.
+
+Metastable system: a system for which favorable rearrangements exist but all of them are blocked by barriers.
 ________________________
 Axioms:
+Axioms 1-3 concern systems with E(G) > 0. A system with E(G) ≤ 0 is stable outright; unless externally supplied with energy, it tends to lower E further (raise BE) by rearrangement, subject to the same barrier rule (see Rearrangements and barriers).
+
 1. Unless externally supplied with energy, a system tends to achieve p(G) = E(G).
    - If p(G) < E(G): deficient. Forms relations to increase p.
-   - If p(G) > E(G): surplus. Uses capacity or rearranges relations to decrease p.
-   - If p(G) = E(G): stable. Optimal.
+   - If p(G) > E(G): surplus. Rearranges relations to decrease p.
+   - If p(G) = E(G): optimal.
    The system cannot go below E(G) without becoming deficient.
-   A surplus system may be trapped in a metastable state if no transition to lower p exists without external energy.
+   A surplus system may be trapped in a metastable state if every favorable rearrangement is blocked by its barrier (Ω > p(G) - E(G)) and no external energy is supplied.
    Therefore if p(G) becomes less than E(G) - the system ceases to exist (Unless external energy is supplied to prevent its collapse, such a system is called a deficient system.)
 
 2. Offset Stability (or Sr) for a system G is defined as,
-p(G)/E(G) {if Sr = 1, the system is stable}
-[Note: Sr is only defined when E(G) ≠ 0. If E(G) = 0, the system is marginally stable; Sr is not applicable.]
-Measure of Instability (Or ΔS) = |Sr - 1| [This only applies to systems of the same type (either all compared systems are unstable OR deficient), p(G) > E(G) OR p(G) < E(G)]
+p(G)/E(G) {if Sr = 1, the system is optimal}
+[Note: Sr is only defined when E(G) > 0. If E(G) ≤ 0, the system is stable regardless of p(G); Sr is not applicable, and such systems are compared by binding energy BE instead.]
+Measure of Instability (Or ΔS) = |Sr - 1| [This only applies to systems of the same type (either all compared systems are surplus OR deficient), p(G) > E(G) OR p(G) < E(G)]
 to compare the DEGREE of stability between two systems, their measure of instabilities are compared. The greater the measure the more "unstable" the system is.
 [Note: Irrespective of the measure of instability an excessive system is always more stable than a deficient system as one can exist independently whereas the other cannot,
-Stable > Surplus > Deficient]
+Optimal > Surplus > Deficient]
 
 3. For a system G,
 pE(G) = p(G) - E(G). If pE(G) > 0, the system is a surplus system.
 A surplus system is stable but not optimal. It tends to lower p(G) toward E(G) through:
-1. Relaxation: The system utilizes the excess energy via internal rearrangement (capacity usage, bond breaking, or link rearrangement), provided identity is not lost and p' ≥ E'.
+1. Relaxation: The system utilizes the excess energy via internal rearrangement (bond breaking or link rearrangement, which lower p), provided identity is not lost and p' ≥ E'.
 2. Dissipation: If relaxation is not possible, energy is given out to the environment.
-If no relaxation path exists without external energy, the system is metastable.
+If every relaxation path is blocked by a barrier (Ω > pE(G)) and no external energy is supplied, the system is metastable.
 
-Note: When a modul's capacity is used (satisfied), its effective c₀ may decrease. This lowers p(G) and E(G). The system evolves until p(G) = E(G) or a barrier prevents further change.
+Note: When a modul's capacity is used (satisfied), its effective c₀ may decrease. This lowers D(G) and hence E(G); p(G) does not depend on c₀ and is unchanged. A deficiency is relieved this way. A surplus is relaxed only by rearranging relations, which changes p(G). The system evolves until p(G) = E(G) or a barrier prevents further change.
